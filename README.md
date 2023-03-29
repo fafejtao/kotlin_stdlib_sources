@@ -12,4 +12,10 @@ Java version: openjdk version "17.0.6" 2023-01-17
 4. try action Declaration of usages (command+b/ctrl+b) on joinToString method. It does not work.
    Decompiled CollectionsKt class is shown. 
 
-I think the problem is that the kotlin-stdlib sources contains Collections.kt in jdk8/kotlin/collections package.
+I think the problem is that the kotlin-stdlib sources contains Collections.kt in wrong package kotlin and jdk8/kotlin/collections package.
+
+```shell
+unzip -l ~/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.8.10/kotlin-stdlib-1.8.10-sources.jar | grep Collections.kt
+    14955  02-01-1980 00:00   kotlin/Collections.kt
+     1532  02-01-1980 00:00   jdk8/kotlin/collections/Collections.kt
+```
